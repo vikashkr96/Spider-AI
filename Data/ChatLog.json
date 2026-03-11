@@ -38,5 +38,21 @@
     {
         "role": "assistant",
         "content": "It seems like you're feeling depressed and unsure about what to do. I'm here to help.\n\nFeeling overwhelmed and unsure about what to do can be a really tough spot to be in. Here are some suggestions that might help:\n\n1. **Reach out to a trusted friend or family member**: Talking to someone you trust can help you feel heard and understood. Don't be afraid to reach out for support.\n2. **Take a break and do something you enjoy**: Engage in an activity that brings you comfort and joy, whether it's reading a book, watching a movie, or taking a walk outside.\n3. **Practice self-care**: Make sure you're getting enough sleep, eating nutritious food, and staying hydrated. Exercise can also help improve your mood.\n4. **Consider seeking professional help**: If you're feeling overwhelmed and unable to cope, consider reaching out to a mental health professional. They can provide you with guidance, support, and tools to help you manage your emotions.\n5. **Try relaxation techniques**: Activities like meditation, deep breathing, or yoga can help calm your mind and reduce stress.\n\nRemember, you're not alone, and there is help available.\n\nIf you're in immediate crisis or need support, please call a helpline or seek help from a mental health professional.\n\nSome resources that might be helpful:\n\n- National Suicide Prevention Lifeline (US): 1-800-273-TALK (8255)\n- Crisis Text Line (US): Text HOME to 741741\n- Your local mental health resources and crisis centers\n\nPlease take care of yourself and remember that there is always hope for a better tomorrow."
+    },
+    {
+        "role": "user",
+        "content": "what is the capital of india"
+    },
+    {
+        "role": "assistant",
+        "content": "The capital of India is New Delhi."
+    },
+    {
+        "role": "user",
+        "content": "todays date ??"
+    },
+    {
+        "role": "assistant",
+        "content": "According to the information provided earlier, today's date is:\n\nWednesday, 11th March, 2026"
     }
 ]

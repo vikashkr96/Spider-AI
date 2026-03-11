@@ -50,12 +50,16 @@ def TTS(text, func=lambda: True):
         return False
 
     finally:
-        pygame.mixer.music.stop()
-        pygame.mixer.music.unload()
-        try:
-            os.remove(AUDIO_PATH)
-        except:
-            pass
+        if pygame.mixer.get_init():
+            pygame.mixer.music.stop()
+            pygame.mixer.music.unload()
+
+        if os.path.exists(AUDIO_PATH):
+            try:
+                os.remove(AUDIO_PATH)
+            except:
+                pass
+            
 def TextToSpeech(Text, func=lambda: True):
     Data = str(Text).split(".")
 

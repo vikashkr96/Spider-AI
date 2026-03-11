@@ -27,24 +27,36 @@ HtmlCode = f"""
 <!DOCTYPE html>
 <html>
 <body>
+
 <button id="start">Start</button>
 <button id="end">Stop</button>
 <p id="output"></p>
 
 <script>
 let recognition;
+
 document.getElementById("start").onclick = () => {{
+
     recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
     recognition.lang = "{InputLanguage}";
     recognition.continuous = true;
+    recognition.interimResults = true;
+
     recognition.onresult = (event) => {{
         document.getElementById("output").innerText =
         event.results[event.results.length - 1][0].transcript;
     }};
+
     recognition.start();
 }};
-document.getElementById("end").onclick = () => recognition.stop();
+
+document.getElementById("end").onclick = () => {{
+    if(recognition) recognition.stop();
+}};
+
 </script>
+
 </body>
 </html>
 """
@@ -54,10 +66,13 @@ with open(HTML_PATH, "w", encoding="utf-8") as f:
 
 # ================= CHROME =================
 options = Options()
+
+# Allow microphone automatically
 options.add_argument("--use-fake-ui-for-media-stream")
-options.add_argument("--use-fake-device-for-media-stream")
+
 options.add_argument("--disable-infobars")
 options.add_argument("--disable-notifications")
+options.add_argument("--start-maximized")
 
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
@@ -65,40 +80,63 @@ driver = webdriver.Chrome(service=service, options=options)
 # ================= HELPERS =================
 def QueryModifier(text):
     text = text.strip()
+
     if not text.endswith(('.', '?', '!')):
         text += '?'
+
     return text.capitalize()
+
 
 def UniversalTranslator(text):
     return mt.translate(text, "en", "auto").capitalize()
 
+
 # ================= MAIN FUNCTION =================
 def SpeechRecognition():
+
     driver.get("file:///" + HTML_PATH.replace("\\", "/"))
-    time.sleep(1)
+
+    time.sleep(2)
 
     driver.find_element(By.ID, "start").click()
 
+    print("🎤 Listening...")
+
     for _ in range(30):  # wait max 30 seconds
+
         try:
+
             text = driver.find_element(By.ID, "output").text.strip()
+
             if text:
+
                 driver.find_element(By.ID, "end").click()
+
+                print("🗣 Raw Input:", text)
 
                 if InputLanguage.lower().startswith("en"):
                     return QueryModifier(text)
+
                 else:
                     return QueryModifier(UniversalTranslator(text))
+
         except:
             pass
-        time.sleep(10)
+
+        time.sleep(1)
 
     return "No speech detected."
 
+
 # ================= RUN =================
 if __name__ == "__main__":
+
     try:
+
         result = SpeechRecognition()
+
         print("Recognized:", result)
+
     finally:
+
         driver.quit()

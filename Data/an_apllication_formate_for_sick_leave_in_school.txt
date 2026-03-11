@@ -1,0 +1,25 @@
+Here's a sample application format for sick leave in school:
+
+**Application for Sick Leave**
+
+**Student's Name:** [Your Name]
+**Class/Section:** [Your Class/Section]
+**Roll Number:** [Your Roll Number]
+**Date:** [Current Date]
+
+Respected [Teacher's Name/Principal's Name],
+
+I am writing to inform you that I am unwell and unable to attend school from [Date of Absence] to [Date of Return]. I am suffering from [Nature of Illness, e.g. fever, headache, etc.] and am currently under medical treatment.
+
+I have attached a medical certificate from my doctor, which confirms my illness and recommends rest for [Number of Days] days. I will make sure to catch up on any missed schoolwork and assignments as soon as I am feeling better.
+
+I apologize for any inconvenience this may cause and appreciate your understanding in this matter. Please grant me leave for the above-mentioned period.
+
+Thank you for your support and consideration.
+
+Sincerely,
+[Your Name]
+
+**Enclosures:** Medical Certificate (if required)
+
+**Note:** Please modify the application as per your school's requirements and policies. Also, make sure to get the application signed by your parents/guardians if required by your school.

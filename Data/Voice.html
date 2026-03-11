@@ -2,23 +2,35 @@
 <!DOCTYPE html>
 <html>
 <body>
+
 <button id="start">Start</button>
 <button id="end">Stop</button>
 <p id="output"></p>
 
 <script>
 let recognition;
+
 document.getElementById("start").onclick = () => {
+
     recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
     recognition.lang = "en";
     recognition.continuous = true;
+    recognition.interimResults = true;
+
     recognition.onresult = (event) => {
         document.getElementById("output").innerText =
         event.results[event.results.length - 1][0].transcript;
     };
+
     recognition.start();
 };
-document.getElementById("end").onclick = () => recognition.stop();
+
+document.getElementById("end").onclick = () => {
+    if(recognition) recognition.stop();
+};
+
 </script>
+
 </body>
 </html>
