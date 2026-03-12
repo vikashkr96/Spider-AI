@@ -128,7 +128,7 @@ def PlayYoutube(query):
     playonyt(query)  # Use pywhatkit's playonyt function to play the video
     return True  # Indicate success
 
-
+PlayYoutube("Bairan song")
 # Function to open an application or a relevant webpage.
 def OpenApp(app, sess=requests.session()):
 
@@ -165,7 +165,7 @@ def OpenApp(app, sess=requests.session()):
             
         return True
 
-OpenApp("Chrome")
+
 # Function to close an application.
 def CloseApp(app):
 
